@@ -1,6 +1,11 @@
 ## Installation
 Step-by-step instructions on how to install your project.
 
+### Clone project from repository
+```bash
+git clone https://github.com/projectsforfive/inhouseMS-back.git
+```
+
 ### Create Virtual Environment for Django Project
 ```bash
 python -m venv myenv
