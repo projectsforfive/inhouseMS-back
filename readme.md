@@ -1,20 +1,23 @@
+## Installation
+Step-by-step instructions on how to install your project.
+
 ### Create Virtual Environment for Django Project
-<code>
+```bash
 python -m venv myenv
-</code>
+```
 
 ### Entering to virtual environment
-<code>
+```bash
 myenv\Scripts\activate
-</code>
+```
 
 ### Install required python modules
-<code>
+```bash
 pip install django django-firebase firebase-admin django-rest-framework
-</code>
+```
 
 ### Launch project
-<code>
+```bash
 cd server
 python manage.py runserver
-</code>
+```
