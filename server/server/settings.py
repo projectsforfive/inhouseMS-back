@@ -129,4 +129,19 @@ REST_FRAMEWORK = {
     ]
 }
 
+import os
+
+# Set the path to your service account key file
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FIREBASE_SERVICE_ACCOUNT_KEY_FILE = os.path.join(BASE_DIR, 'inhousems-aee24-firebase-adminsdk-fbsvc-68aee5da0f.json')
+
+# Initialize Firebase Admin
+# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = FIREBASE_SERVICE_ACCOUNT_KEY_FILE
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+
+cred = credentials.Certificate(FIREBASE_SERVICE_ACCOUNT_KEY_FILE)
+firebase_admin.initialize_app(cred)
+db = firestore.client()
 
