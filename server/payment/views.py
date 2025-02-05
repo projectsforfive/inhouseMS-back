@@ -28,7 +28,7 @@ class NewPay(APIView):
         print('scores created')
     except KeyError:
         return Response({'message': "Error: The key does not exist in the request."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    return Response({'message': 'New user has been registered successufully.'}, status=status.HTTP_202_ACCEPTED)
+    return Response({'message': 'New payment has been registered successufully.'}, status=status.HTTP_202_ACCEPTED)
   
 class GetPayments(APIView):
   def get(self, request, uid):
@@ -43,7 +43,7 @@ class GetPayments(APIView):
       #   # print(existing_outcomes)
         return Response({'data': existing_outcomes}, status=status.HTTP_200_OK)
       else:
-        return Response({'message': 'No outcomes found.', 'data': None}, status=status.HTTP_404_NOT_FOUND)
+        return Response({'message': 'No payment found.', 'data': None}, status=status.HTTP_404_NOT_FOUND)
     except KeyError:
         return Response({'message': "Error: The key does not exist in the request."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
@@ -82,7 +82,7 @@ class GetOnePayment(APIView):
           for origin_outcome in origin_outcomes
       ]
       db.collection('payment').document(uid).update({'scores': updated_outcomes})
-      return Response({'message': 'Outcome updated successfully.'}, status=status.HTTP_202_ACCEPTED)
+      return Response({'message': 'payment updated successfully.'}, status=status.HTTP_202_ACCEPTED)
     except KeyError:
       return Response({'message': "Error: The key does not exist in the request."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -98,10 +98,10 @@ class GetOnePayment(APIView):
         print(data)
         if data:
           doc_ref.update({'scores': firestore.ArrayRemove([data[0]])})
-          return Response({'message': 'Outcome deleted successfully.'}, status=status.HTTP_202_ACCEPTED)
+          return Response({'message': 'payment deleted successfully.'}, status=status.HTTP_202_ACCEPTED)
         else:
-          return Response({'message': 'No outcomes found.', 'data': None}, status=status.HTTP_404_NOT_FOUND)
+          return Response({'message': 'No payment found.', 'data': None}, status=status.HTTP_404_NOT_FOUND)
       else:
-        return Response({'message': 'No outcomes found.', 'data': None}, status=status.HTTP_404_NOT_FOUND)
+        return Response({'message': 'No payment found.', 'data': None}, status=status.HTTP_404_NOT_FOUND)
     except KeyError:
         return Response({'message': "Error: The key does not exist in the request."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
