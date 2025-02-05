@@ -26,3 +26,15 @@ pip install django django-firebase firebase-admin django-rest-framework
 cd server
 python manage.py runserver
 ```
+
+### payment routes
+# create new outcome
+post localhost:8000/payment/paid/ 
+# get all outcomes
+get localhost:8000/payment/paid-all/<uid>/
+# get one outcome
+get localhost:8000/payment/paid/<uid>/<id>/
+# update one outcome
+put localhost:8000/payment/paid/<uid>/<id>/
+# delete one outcome
+delete localhost:8000/payment/paid/<uid>/<id>/
