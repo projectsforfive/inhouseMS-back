@@ -170,6 +170,10 @@ import os
 
 # Set the path to your service account key file
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 FIREBASE_SERVICE_ACCOUNT_KEY_FILE = os.path.join(BASE_DIR, 'inhousems-aee24-firebase-adminsdk-fbsvc-68aee5da0f.json')
 
 # Initialize Firebase Admin
