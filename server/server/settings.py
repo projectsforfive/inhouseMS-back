@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
 ]
 
@@ -162,11 +163,7 @@ import os
 
 # Set the path to your service account key file
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static'),
-# ]
-FIREBASE_SERVICE_ACCOUNT_KEY_FILE = os.path.join(BASE_DIR, 'inhousems-aee24-firebase-adminsdk-fbsvc-68aee5da0f.json')
+FIREBASE_SERVICE_ACCOUNT_KEY_FILE = os.path.join(BASE_DIR, 'key.json')
 # Initialize Firebase Admin
 # os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = FIREBASE_SERVICE_ACCOUNT_KEY_FILE
 import firebase_admin

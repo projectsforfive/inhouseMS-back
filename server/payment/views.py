@@ -10,16 +10,23 @@ class NewPay(APIView):
   def post(self, request):
     data = request.data.copy()
     uid = data.get('uid')
+<<<<<<< HEAD
     print(uid)
+=======
+>>>>>>> 250c7581023cac23958f98725b31ddef03d0d1d2
     data['id']= str(uuid.uuid4())
     if not data:
       return Response({'message': 'Data is required.'}, status=status.HTTP_400_BAD_REQUEST)
     try:
       db = firestore.client()
       doc_ref = db.collection('payment').document(uid)
+<<<<<<< HEAD
       print("doc/ref", pay_info)
       pay_info = doc_ref.get()
       print("pay_info", pay_info)
+=======
+      pay_info = doc_ref.get()
+>>>>>>> 250c7581023cac23958f98725b31ddef03d0d1d2
       if pay_info.exists:
         existing_outcomes = pay_info.to_dict().get(uid)
         print(existing_outcomes)
@@ -39,7 +46,10 @@ class GetPayments(APIView):
       print(uid)
       db = firestore.client()
       doc_ref = db.collection('payment').document(uid)
+<<<<<<< HEAD
       print(doc_ref)
+=======
+>>>>>>> 250c7581023cac23958f98725b31ddef03d0d1d2
       payments = doc_ref.get()
       print(payments)
       if payments.exists:
