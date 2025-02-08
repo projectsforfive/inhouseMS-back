@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-^4#6$8a*o_k)rmhe&43wzkl3qx7gq0%^ij+&zd_^f1+#o_%@wb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://inhousems-back.onrender.com"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'firebase_auth',
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -75,14 +76,7 @@ TEMPLATES = [
 
 # Cors Handle
 CORS_ALLOW_CREDENTIALS = False
-
-CORS_ALLOWED_ORIGINS = (
-    "http://localhost:3000",  # Your frontend URL
-)
-
-CORS_ORIGIN_WHITELIST = (
-     'localhost:3000/'
- )
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 CORS_ALLOW_METHODS = [
@@ -170,10 +164,10 @@ import os
 
 # Set the path to your service account key file
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
 FIREBASE_SERVICE_ACCOUNT_KEY_FILE = os.path.join(BASE_DIR, 'inhousems-aee24-firebase-adminsdk-fbsvc-68aee5da0f.json')
 
 # Initialize Firebase Admin
@@ -185,11 +179,3 @@ from firebase_admin import firestore
 cred = credentials.Certificate(FIREBASE_SERVICE_ACCOUNT_KEY_FILE)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
-
-# MIDDLEWARE = [
-#     'whitenoise.middleware.WhiteNoiseMiddleware',
-#     # other middleware...
-# ]
-
-# STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
