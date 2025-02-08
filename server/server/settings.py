@@ -182,3 +182,10 @@ cred = credentials.Certificate(FIREBASE_SERVICE_ACCOUNT_KEY_FILE)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
+# MIDDLEWARE = [
+#     'whitenoise.middleware.WhiteNoiseMiddleware',
+#     # other middleware...
+# ]
+
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
