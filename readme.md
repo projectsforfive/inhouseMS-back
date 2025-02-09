@@ -18,7 +18,7 @@ myenv\Scripts\activate
 
 ### Install required python modules
 ```bash
-pip install django firebase-admin django-rest-framework django-cors-headers
+pip install django firebase-admin django-rest-framework django-cors-headers python-decouple
 ```
 
 ### Launch project
